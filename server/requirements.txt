@@ -1,0 +1,4 @@
+# crawler requirements
+selenium
+twisted==15.4.0
+six==1.5.2

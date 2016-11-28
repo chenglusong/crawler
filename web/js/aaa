@@ -1,0 +1,14 @@
+promise
+var defer = $.Deferred();
+var promise = defer.promise();
+promise.then(function(){},function(){})
+
+
+
+
+$.ajax({
+    url:
+    success: funcrtion(){
+        defer.resolve();
+    }
+})

@@ -1,0 +1,222 @@
+<html class=" datauri">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Crawler</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/crawler.css" />
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery.rotate.js"></script>
+<script src="js/patch.js"></script>
+<script src="js/tree-mirror.js"></script>
+<script src="js/webdocument.js"></script>
+<script src="js/crawler.js"></script>
+<script src="js/xpath_patch.js"></script>
+<script src="js/jquery.xpath.js"></script>
+<!--<script src="js/bootstrap/js/bootstrap.min.js"></script>-->
+<!--<link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css"/>-->
+
+
+</head>
+<body class="ember-application">
+	<div class='masking'></div>
+	<img class='masking_image' src="./css/img/loading.gif">
+
+	<div>
+		<section id="window">
+			<nav id="top-bar" class="navbar navbar-default navbar-static-top">
+				<div class="navbar-header navbar-left"><span class="navbar-brand">
+					Crawler <span class="label label-danger">beta</span> </span>
+				</div>
+				<ul class="nav navbar-nav navbar-left">
+					<li><a href="#"> Switch to previous Crawler UI </a></li>
+					<li><a href="#">Crawler Dashboard </a></li>
+					<li><a href="#" target="_blank"> Crawler 1.0 Documentation </a></li>
+
+				</ul>
+				<div class="navbar-right"><!----></div>
+			</nav>
+			<section style="overflow: visible;">
+				<nav id="side-bar">
+					<div class="project-detail">
+						<div id="ember672" class="ember-view animation-container tree-list spider-project-name" >
+							<div >工程名:</div>
+							<div>
+								<i class='glyphicons glyphicons-folder-open folder-icon'></i>
+								<span class="project-name">project test</span>
+								<i class='upload-icon'></i>
+								<i class='recovery-icon'></i>
+								<i class='delete-icon'></i>
+							</div>
+						</div>
+						<div>
+							<div class="spider-name-columns">
+								<div>爬虫名字:</div>
+
+								<div class="alert-message">该工程还没有建立爬虫</div>
+								<div class="spider-detail" >
+
+								</div>
+							</div>
+
+							<div class="spider-data" style="display: none">
+								<div class="spider-data-model">爬虫数据的样式:<i class='add-icon'></i></div>
+								<div class="spider-data-field"></div>
+							</div>
+
+
+
+
+						</div>
+
+						<div class="next-page-setting">
+							<div class="next-page-model">翻页设置:
+								<i class='next-page-setting-icon'></i>
+							</div>
+
+							<div  class ='next-page-choose'>
+								<input name="Fruit" type="radio" value="" style="margin: 10;"/>点击翻页栏 <i class='tips-icon'></i>
+								<i class='click-next-page-icon'></i>
+
+							</div>
+							<div class ='next-page-choose'>
+								<input name="Fruit" type="radio" value="" style="margin: 10;"/>滑动鼠标翻页
+							</div>
+						</div>
+
+
+
+					</div>
+				</nav>
+
+				<main >
+
+
+					<div class="browser-view-port panel panel-default">
+						<div class="browser-navigation panel-heading">
+							<form class="navbar-form">
+								<div id="url-bar" class="input-group">
+								    <span class="input-group-btn">
+						                <button id="mode-feedback-icon2" type="button" class="btn btn-mode btn-mode-navigation" data-original-title="" title="">
+						                    <i class="icon-button fa fa-eye"><!----></i>
+						                </button>
+								    </span>
+								    <input id="urlInput" placeholder="Enter a website address" spellcheck="false" type="text" class="form-control  ember-text-field">
+								    <span class="input-group-btn">
+								        <button id="refreshButton" class="btn btn-default" type="button">
+								            <span id="refreshIcon" class="fa fa-repeat"></span>
+								        </button>
+								    </span>
+								</div>
+							</form>
+							<div class="browser-toolbar">
+						    	<button id="annotationButton" type="button" class="btn btn-primary" disabled="">
+								    <i id="abIcon" class="icon-button portia-icon portia-icon-spider"></i>
+								    <span id="abText">新建爬虫</span>
+								</button>
+						    </div>
+						</div>
+
+						<div class="browser-banner hide"></div>
+						<div class="setButtonStyle">
+							<input type="button" id="stopCSS" value="禁用CSS">
+
+							<input type="button" id="thinkFunction" value="联想添加">
+							<input type="button" id="addField" value="单个添加">
+							<input type="button" id="addField" value="删除字段">
+
+						</div>
+						<div class="frame-container panel-body">
+							<div class="overlay-container"><!----></div>
+							<iframe id="scraped-doc-iframe" class="browser-iframe"  target="_self"><!----></iframe>
+							<canvas id="infocanvas" class="doc-canvas" style="pointer-events: none; background: rgba(0, 0, 0, 0);"></canvas>
+						</div>
+						<div class="browser-start-page">
+							<img src="/images/portia-logo.svg" alt="Portia logo" />
+							<h3>What would you like to crawl?</h3>
+							<form class="navbar-form">
+								<div id="url-bar" class="input-group">
+	    							<span class="input-group-btn">
+								        <button class="btn btn-default" type="button" disabled="">
+								            <span class="fa fa-arrow-left"></span>
+								        </button>
+								        <button class="btn btn-default" type="button" disabled="">
+								            <span class="fa fa-arrow-right"></span>
+								        </button>
+						                <button id="mode-feedback-icon" type="button" class="btn btn-mode btn-mode-navigation">
+						                    <i class="icon-button fa fa-eye"><!----></i>
+						                </button>
+	    							</span>
+	    							<input id="sUrlInput" autofocus="" placeholder="Enter a website address" spellcheck="false" type="text" class="form-control  ember-text-field">
+								    <span class="input-group-btn">
+								        <button class="btn btn-default" type="button">
+								            <span class="fa fa-repeat"></span>
+								        </button>
+								    </span>
+								</div>
+							</form>
+						</div>
+					</div>
+					<nav id="tool-panels">
+						<div id="inspector-group" class="tool-group">
+							<header class="tool-group-header">
+							    <ul class="nav nav-tabs">
+							        <li class="active"><a>Inspector</a></li>
+							        <li class="tool-group-icons pull-right">
+						                <a class="tool-group-collapse">
+						                    <span class="caret"></span>
+						                </a>
+						        	</li>
+							    </ul>
+							</header>
+							<section class="tool-group-content">
+							    <div id="hovered-element-info" class="inspector container-fluid tool-panel">
+								    <div>
+					                    <p class="text-muted empty-notice">No element selected</p>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div id="extracted-items-group" class="tool-group">
+							<header class="tool-group-header">
+							    <ul class="nav nav-tabs">
+							        <li class="active">
+								        <a>
+							    			<div>
+							    				Extracted items
+									 			<span class="badge">0</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a data-ember-action="1855">
+							                JSON
+										</a>
+									</li>
+							        <li class="tool-group-icons pull-right">
+						                <a class="tool-group-collapse">
+						                    <span class="caret"></span>
+						                </a>
+									</li>
+							    </ul>
+							</header>
+							<section class="tool-group-content">
+							    <div class="extracted-items container-fluid tool-panel">
+							    	<div></div>
+								</div>
+								<div class="extracted-items-json tool-panel hide">
+									<div>
+						                <span class="json-character-size">a</span>
+									</div>
+								</div>
+							</section>
+						</div>
+					</nav>
+				</main>
+			</section>
+		</section>
+	</div>
+
+</body>
+</html>
